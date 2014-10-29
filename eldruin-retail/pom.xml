@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>eldruin</groupId>
+    <artifactId>eldruin</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <groupId>eldruin-retail</groupId>
+  <artifactId>eldruin-retail</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Eldruin :: Retail</name>
+  <description>Default implementation for Tyrael Framework's retail libraries</description>
+
+  <modules>
+    <module>eldruin-retail-admin</module>
+    <module>eldruin-retail-ics</module>
+  </modules>
+</project>
