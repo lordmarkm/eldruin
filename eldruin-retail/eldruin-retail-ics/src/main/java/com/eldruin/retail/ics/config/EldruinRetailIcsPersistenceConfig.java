@@ -71,7 +71,8 @@ public class EldruinRetailIcsPersistenceConfig extends PersistenceConfig {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource());
         entityManagerFactory.setPackagesToScan(new String[] {
-            "com.eldruin.retail.ics.models"
+            "com.eldruin.retail.ics.models",
+            "com.tyrael.erp.ics.models"
         });
         entityManagerFactory.setPersistenceProvider(new HibernatePersistence());
         entityManagerFactory.setJpaProperties(hibernateProperties());

@@ -11,7 +11,7 @@ import com.tyrael.commons.models.Product;
 @Entity(name = "PRODUCT")
 public class RetailProduct extends Product {
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String code;
 
     public String getCode() {

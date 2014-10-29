@@ -1,33 +1,21 @@
 package com.eldruin.retail.ics.dto;
 
+import org.springframework.core.style.ToStringCreator;
+
+import com.tyrael.commons.dto.BaseTyraelNamedDto;
+
 /**
  * @author mbmartinez
  */
-public class RetailProductInfo {
+public class RetailProductInfo extends BaseTyraelNamedDto {
 
-    private Long id;
-    private String name;
-    private String description;
     private String code;
 
-    public Long getId() {
-        return id;
+    protected ToStringCreator toStringCreator() {
+        return super.toStringCreator()
+            .append("code", code);
     }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
+
     public String getCode() {
         return code;
     }

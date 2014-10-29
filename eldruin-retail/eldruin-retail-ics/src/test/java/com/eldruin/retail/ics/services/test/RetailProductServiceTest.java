@@ -40,7 +40,7 @@ public class RetailProductServiceTest {
 
     private RetailProduct saveGeneric() {
         RetailProduct product = new RetailProduct();
-        product.setCode(RandomStringUtils.random(10));
+        product.setCode(RandomStringUtils.randomAlphanumeric(10));
         product.setDescription("Some desc");
         product.setName("some name");
         product.setUnitOfMeasurement("kg");
