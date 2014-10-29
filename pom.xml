@@ -11,7 +11,7 @@
 
   <properties>
     <project.version>1.0</project.version>
-    <tyrael.version>1.0</tyrael.version>
+    <tyrael.version>1.1</tyrael.version>
     <baldy-commons.version>2.0</baldy-commons.version>
 
     <maven.jetty.version>8.1.8.v20121106</maven.jetty.version>
@@ -54,6 +54,11 @@
       <dependency>
         <groupId>tyrael-commons</groupId>
         <artifactId>tyrael-commons-models</artifactId>
+        <version>${tyrael.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>tyrael-commons</groupId>
+        <artifactId>tyrael-commons-data</artifactId>
         <version>${tyrael.version}</version>
       </dependency>
       <dependency>
