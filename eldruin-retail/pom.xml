@@ -18,5 +18,7 @@
   <modules>
     <module>eldruin-retail-admin</module>
     <module>eldruin-retail-ics</module>
+    <module>eldruin-retail-dashboard</module>
+    <module>eldruin-retail-security</module>
   </modules>
 </project>
