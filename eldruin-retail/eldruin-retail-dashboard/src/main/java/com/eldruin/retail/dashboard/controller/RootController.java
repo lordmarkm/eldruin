@@ -14,7 +14,7 @@ public class RootController extends GenericController {
 
     @RequestMapping("/")
     public ModelAndView tenant() {
-        return mav("main");
+        return mav("manage");
     }
 
 }
