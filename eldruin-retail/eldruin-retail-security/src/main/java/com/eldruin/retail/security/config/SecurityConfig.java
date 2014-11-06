@@ -1,12 +1,10 @@
 package com.eldruin.retail.security.config;
 
-import static com.ccsi.security.reference.Roles.ADMIN;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -22,6 +20,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import com.baldy.commons.security.services.BaldyCommonsSecurityServicesMarker;
 import com.baldy.commons.security.services.BaseBaldyUserDetailsService;
+import com.eldruin.retail.security.EldruinRetailSecurityMarker;
 
 /**
  * Do not autoformat this class.
@@ -29,16 +28,18 @@ import com.baldy.commons.security.services.BaseBaldyUserDetailsService;
  */
 @Configuration
 @EnableWebSecurity
-@ComponentScan(basePackages = "com.ccsi.security",
-    basePackageClasses = BaldyCommonsSecurityServicesMarker.class)
+@ComponentScan(basePackageClasses = {
+    BaldyCommonsSecurityServicesMarker.class,
+    EldruinRetailSecurityMarker.class
+})
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableJpaRepositories(basePackageClasses = {
+    BaldyCommonsSecurityServicesMarker.class
+})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private BaseBaldyUserDetailsService userDetailsService;
-
-    @Autowired
-    private Environment env;
 
     @Bean
     public LocalValidatorFactoryBean localValidatorFactorybean() {
@@ -73,19 +74,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/admin**").hasRole(ADMIN)
-                .antMatchers("/tenant**").authenticated()
-//              .antMatchers("/operations**").hasAnyAuthority(OPERATOR, WAREHOUSE, MIXER, EXTRUDER, PRINTER, CUTTER)
-                .antMatchers("/register**").permitAll()
-                
-                //The endpoints used by chikka
-                .antMatchers("/message").permitAll()
-                .antMatchers("/notification").permitAll()
+                /*
+                 * All powerful admin man can do anything.
+                 */
+                .antMatchers("/admin**").hasRole("ADMIN")
 
-                //Test endpoint
-                .antMatchers("/test").permitAll()
+                /*
+                 * Manager can put new products into the website and stuff.
+                 */
+                .antMatchers("/manage**").hasRole("MANAGE")
 
-                .antMatchers("/**").authenticated()
+                /*
+                 * Customers who register for and log onto the site.
+                 * They have order histories and stuff.
+                 */
+                .antMatchers("/customer**").hasRole("CUSTOMER")
+
+                /*
+                 * Everything else is for customers browsing pleasure
+                 */
+                .antMatchers("/**").permitAll()
                 .and()
             .logout()
                 .deleteCookies("JSESSIONID")

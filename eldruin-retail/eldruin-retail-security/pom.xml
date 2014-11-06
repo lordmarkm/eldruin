@@ -6,9 +6,8 @@
     <artifactId>eldruin-retail</artifactId>
     <version>1.0</version>
   </parent>
-  <groupId>eldruin-retail-security</groupId>
   <artifactId>eldruin-retail-security</artifactId>
-  <name>Eldruin Retail :: Security</name>
+  <name>Eldruin :: Retail :: Security</name>
 
   <dependencies>
     <dependency>

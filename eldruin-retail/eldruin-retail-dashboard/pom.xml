@@ -12,10 +12,17 @@
 
   <dependencies>
     <dependency>
+      <groupId>eldruin-retail</groupId>
+      <artifactId>eldruin-retail-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>eldruin-retail</groupId>
+      <artifactId>eldruin-retail-security</artifactId>
+    </dependency>
+    <dependency>
       <groupId>baldy.commons</groupId>
       <artifactId>baldy-commons-web</artifactId>
     </dependency>
-
 
     <dependency>
       <groupId>ch.qos.logback</groupId>

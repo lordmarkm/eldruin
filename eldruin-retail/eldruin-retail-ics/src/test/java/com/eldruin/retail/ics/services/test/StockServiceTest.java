@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.eldruin.retail.core.config.EldruinRetailCorePersistenceConfig;
 import com.eldruin.retail.ics.config.EldruinRetailIcsConfig;
-import com.eldruin.retail.ics.config.EldruinRetailIcsPersistenceConfig;
 import com.eldruin.retail.ics.dto.RetailStockInfo;
 import com.eldruin.retail.ics.models.RetailProduct;
 import com.eldruin.retail.ics.models.RetailStock;
@@ -26,7 +26,7 @@ import com.tyrael.commons.mapper.config.MapperConfig;
 @ContextConfiguration(classes = {
         MapperConfig.class,
         EldruinRetailIcsConfig.class, 
-        EldruinRetailIcsPersistenceConfig.class
+        EldruinRetailCorePersistenceConfig.class
 })
 public class StockServiceTest {
 

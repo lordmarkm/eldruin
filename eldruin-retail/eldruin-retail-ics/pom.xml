@@ -9,20 +9,12 @@
   <artifactId>eldruin-retail-ics</artifactId>
   <name>Eldruin :: Retail :: ICS</name>
 
-  <properties>
-    <db.driver>com.mysql.jdbc.Driver</db.driver>
-    <db.username>root</db.username>
-    <db.password>root</db.password>
-    <db.host>localhost</db.host>
-    <db.port>3306</db.port>
-    <db.name>eldruin_retail_ics</db.name>
-    <db.dialect>org.hibernate.dialect.MySQL5Dialect</db.dialect>
-    <hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
-    <hibernate.hbm2ddl.import_files></hibernate.hbm2ddl.import_files>
-    <reload.csv>false</reload.csv>
-  </properties>
-
   <dependencies>
+    <dependency>
+      <groupId>eldruin-retail</groupId>
+      <artifactId>eldruin-retail-core</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>tyrael-commons</groupId>
       <artifactId>tyrael-commons-data</artifactId>

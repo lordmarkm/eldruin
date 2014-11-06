@@ -9,6 +9,10 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import com.baldy.commons.web.config.BaldyCommonsWebConfigMarker;
+import com.eldruin.retail.core.config.EldruinRetailCoreConfigMarker;
+import com.eldruin.retail.dashboard.EldruinRetailDashboardMarker;
+import com.eldruin.retail.security.EldruinRetailSecurityMarker;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
@@ -17,9 +21,11 @@ import com.fasterxml.jackson.datatype.joda.JodaModule;
  * @author mbmartinez
  */
 @Configuration
-@ComponentScan(basePackages = {
-    "com.baldy.commons.web.config",
-    "com.eldruin.retail.dashboard",
+@ComponentScan(basePackageClasses = {
+    BaldyCommonsWebConfigMarker.class,
+    EldruinRetailCoreConfigMarker.class,
+    EldruinRetailSecurityMarker.class,
+    EldruinRetailDashboardMarker.class
 })
 public class EldruinDashboardConfig extends WebMvcConfigurationSupport {
 

@@ -1,4 +1,4 @@
-package com.eldruin.retail.ics.config;
+package com.eldruin.retail.core.config;
 
 import java.util.Properties;
 
@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.tyrael.commons.data.config.PersistenceConfig;
@@ -21,11 +21,9 @@ import com.tyrael.commons.data.config.PersistenceConfig;
  * @author Mark
  */
 @Configuration
-@EnableJpaRepositories(basePackages = {
-    "com.eldruin.retail.ics.services"
-}, repositoryImplementationPostfix = "CustomImpl")
 @PropertySource({"classpath:db.properties"})
-public class EldruinRetailIcsPersistenceConfig extends PersistenceConfig {
+@EnableTransactionManagement
+public class EldruinRetailCorePersistenceConfig extends PersistenceConfig {
 
     @Resource
     private Environment env;
@@ -71,6 +69,7 @@ public class EldruinRetailIcsPersistenceConfig extends PersistenceConfig {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource());
         entityManagerFactory.setPackagesToScan(new String[] {
+            "com.baldy.commons.security.models",
             "com.eldruin.retail.ics.models",
             "com.tyrael.erp.ics.models"
         });

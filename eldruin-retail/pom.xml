@@ -20,5 +20,6 @@
     <module>eldruin-retail-ics</module>
     <module>eldruin-retail-dashboard</module>
     <module>eldruin-retail-security</module>
+    <module>eldruin-retail-core</module>
   </modules>
 </project>
