@@ -6,6 +6,7 @@
 <title>Eldruin Retail</title>
 <link rel="stylesheet" href="<@spring.url '/lib/bootstrap-3.2.0/css/bootstrap.min.css' />" />
 <link rel="stylesheet" href="<@spring.url '/lib/dashboard.css' />" />
+<link rel="stylesheet" href="<@spring.url '/lib/app.css' />" />
 <link rel="stylesheet" href="<@spring.url '/lib/angular-ngtable/ng-table.min.css' />" />
 <link rel="stylesheet" href="<@spring.url '/lib/font-awesome-4.1.0/css/font-awesome.min.css' />" />
 <link rel="stylesheet" href="<@spring.url '/lib/angular/toaster.css' />" />
@@ -47,28 +48,9 @@
   <div class="container-fluid">
     <toaster-container toaster-options="{'time-out': 4000, 'limit' : 3}"></toaster-container>
     <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar">
-        <ul class="nav nav-sidebar">
-          <li class="active"><a href="#">Overview</a></li>
-          <li><a href="#">Reports</a></li>
-          <li><a href="#">Analytics</a></li>
-          <li><a href="#">Export</a></li>
-        </ul>
-        <ul class="nav nav-sidebar">
-          <li><a href="">Nav item</a></li>
-          <li><a href="">Nav item again</a></li>
-          <li><a href="">One more nav</a></li>
-          <li><a href="">Another nav item</a></li>
-          <li><a href="">More navigation</a></li>
-        </ul>
-        <ul class="nav nav-sidebar">
-          <li><a href="">Nav item again</a></li>
-          <li><a href="">One more nav</a></li>
-          <li><a href="">Another nav item</a></li>
-        </ul>
-      </div>
+      <div ui-view="sidebar"></div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <div ui-view>Loading resources...</div>
+        <div ui-view="main">Loading resources...</div>
       </div>
     </div>
   </div>

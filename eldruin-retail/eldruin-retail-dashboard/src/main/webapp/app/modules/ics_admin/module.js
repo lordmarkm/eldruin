@@ -4,8 +4,20 @@ define(['app/app.js'],
     return app.config(function($stateProvider) {
       $stateProvider.state('ics_admin', {
         url: '/admin',
-        templateUrl: 'app/modules/ics_admin/view/hello.html',
-        controller: 'IcsAdminController'
+        views: {
+          sidebar: {
+            templateUrl: 'app/modules/ics_admin/view/sidebar.html'
+          },
+          main: {
+            template: '<ui-view></ui-view>'
+          }
+        }
+      }).state('ics_admin.overview', {
+        url: '/overvew',
+        templateUrl: 'app/modules/ics_admin/view/overview.html'
+      }).state('ics_admin.products', {
+        url: '/products',
+        templateUrl: 'app/modules/ics_admin/view/products.html'
       });
     }
   );
