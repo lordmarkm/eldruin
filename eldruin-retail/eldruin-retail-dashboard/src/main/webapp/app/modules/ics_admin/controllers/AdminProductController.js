@@ -43,7 +43,7 @@ define(['angular', 'app/controllers/module.js'], function (angular, controllers)
       }
       return $modal.open({
         scope: $scope,
-        templateUrl: 'modal-create-product',
+        templateUrl: 'modal-update-product',
         backdrop: 'static',
         controller: ['$scope', '$modalInstance', function ($scope, $modalInstance) {
           $scope.confirm = function () {

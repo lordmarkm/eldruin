@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,13 +47,13 @@ public class RetailProductResource extends GenericController {
     }
 
     @RequestMapping(value = "/{code}", method = GET)
-    public ResponseEntity<RetailProductInfo> findByCode(Principal principal, String code) {
+    public ResponseEntity<RetailProductInfo> findByCode(Principal principal, @PathVariable String code) {
         LOG.debug("findByCode request. user={}, code={}", name(principal), code);
         return new ResponseEntity<>(service.findByCodeInfo(code), OK);
     }
 
     @RequestMapping(value = "/{code}", method = DELETE)
-    public ResponseEntity<RetailProductInfo> deleteByCode(Principal principal, String code) {
+    public ResponseEntity<RetailProductInfo> deleteByCode(Principal principal, @PathVariable String code) {
         LOG.debug("Delete request. user={}, code={}", name(principal), code);
         RetailProduct product = service.findByCode(code);
         return new ResponseEntity<>(service.softDelete(product.getId()), OK);

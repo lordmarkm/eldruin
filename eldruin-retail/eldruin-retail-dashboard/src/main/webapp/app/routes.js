@@ -6,12 +6,6 @@ define([
     $stateProvider.state('default', {
       url: '/',
       abstract: true
-    }).state('default.welcome', {
-      url: '',
-      templateUrl: 'app/view/welcome.html'
-    }).state('default.hello', {
-      url: 'hello',
-      templateUrl: 'app/view/hello.html'
     });
   });
 });

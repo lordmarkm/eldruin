@@ -4,7 +4,7 @@ define(['angular'], function(angular) {
   angular.module('app.services', ['ngResource'])
 
   .factory('ProductService', function($resource) {
-    return $resource('../retailproduct');
+    return $resource('retailproduct/:code');
   });
 
 });

@@ -10,6 +10,25 @@
   <name>Eldruin :: Retail :: Dashboard</name>
   <packaging>war</packaging>
 
+  <properties>
+    <packageExcludePattern>%regex[WEB-INF/lib/(?!(eldruin|tyrael|baldy)).*\.jar]</packageExcludePattern>
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>fatwar</id>
+      <properties>
+        <packageExcludePattern></packageExcludePattern>
+      </properties>
+    </profile>
+    <profile>
+      <id>qa</id>
+      <build>
+        <finalName>apptodate</finalName>
+      </build>
+    </profile>
+  </profiles>
+
   <dependencies>
     <dependency>
       <groupId>eldruin-retail</groupId>
@@ -23,7 +42,7 @@
       <groupId>eldruin-retail</groupId>
       <artifactId>eldruin-retail-ics</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>baldy.commons</groupId>
       <artifactId>baldy-commons-web</artifactId>
@@ -50,4 +69,28 @@
       <version>2.3.3</version>
     </dependency>
   </dependencies>
+
+  <build>
+    <finalName>apptodate-dev</finalName>
+    <plugins>
+      <plugin>
+        <!-- http://docs.codehaus.org/display/JETTY/Maven+Jetty+Plugin -->
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.2.2-SNAPSHOT</version>
+        <configuration>
+          <webApp>
+            <contextPath>/ccsi</contextPath>
+          </webApp>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <packagingExcludes>${packageExcludePattern}</packagingExcludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
