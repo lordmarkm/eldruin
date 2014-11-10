@@ -61,6 +61,11 @@
         <artifactId>eldruin-retail-security</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>eldruin-retail</groupId>
+        <artifactId>eldruin-retail-ics</artifactId>
+        <version>${project.version}</version>
+      </dependency>
 
       <!-- TYRAEL -->
       <dependency>

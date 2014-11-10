@@ -1,1 +1,69 @@
-Productos
+<div class="row">
+  <h3>Products</h3>
+  <button ng-click="updateProduct()" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i> New</button>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+  <table ng-table="tableParams" show-filter="true" class="table table-striped" >
+    <thead>
+      <tr>
+        <th style="text-align: left;">Code
+        <th style="text-align: left;">Name
+        <th style="text-align: left;">Description
+        <th style="text-align: left;">Price
+        <th style="text-align: left;">Status
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="product in $data">
+        <td>{{product.code}}
+        <td>{{product.name}}
+        <td>{{product.description}}
+        <td>{{product.price | currency: 'Php '}}
+        <td>{{product.status}}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modals -->
+<script type="text/ng-template" id="modal-create-product">
+  <div class="modal-header modal-primary">
+    <button type="button" class="close" ng-click="close()">&times;</button>
+    <h3 ng-if="!product.id" class="modal-title">Create new product</h3>
+    <h3 ng-if="product.id" class="modal-title">Update product</h3>
+  </div>
+  <form ng-submit="confirm()" class="form form-horizontal">
+  <div class="modal-body">
+      <div class="form-group">
+        <label for="productCode" class="col-sm-3">Code</label>
+        <div class="col-sm-8">
+          <input type="text" ng-model="product.code" id="productCode" class="form-control" placeholder="Code">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="productName" class="col-sm-3">Product name</label>
+        <div class="col-sm-8">
+          <input type="text" ng-model="product.name" class="form-control" id="productName" placeholder="Product name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="productDesc" class="col-sm-3">Product description</label>
+        <div class="col-sm-8">
+          <input type="text" ng-model="product.description" class="form-control" id="productDesc" placeholder="Description">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="productPrice" class="col-sm-3">Base Price</label>
+        <div class="col-sm-8">
+          <input type="text" ng-model="product.price" class="form-control" id="productPrice" placeholder="Price">
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button ng-if="!product.id" class="btn btn-s-xs btn-primary">Create</button>
+    <button ng-if="product.id" class="btn btn-s-xs btn-success">Update</button>
+    <span class="btn btn-default btn-s-xs" ng-click="close()">Cancel</span>
+  </div>
+  </form>
+</script>

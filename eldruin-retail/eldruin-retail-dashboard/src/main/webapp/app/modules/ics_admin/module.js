@@ -17,7 +17,8 @@ define(['app/app.js'],
         templateUrl: 'app/modules/ics_admin/view/overview.html'
       }).state('ics_admin.products', {
         url: '/products',
-        templateUrl: 'app/modules/ics_admin/view/products.html'
+        templateUrl: 'app/modules/ics_admin/view/products.html',
+        controller: 'AdminProductController'
       });
     }
   );

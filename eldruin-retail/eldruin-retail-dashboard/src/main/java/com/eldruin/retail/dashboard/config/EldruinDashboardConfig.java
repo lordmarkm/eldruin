@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import com.baldy.commons.web.config.BaldyCommonsWebConfigMarker;
 import com.eldruin.retail.core.config.EldruinRetailCoreConfigMarker;
 import com.eldruin.retail.dashboard.EldruinRetailDashboardMarker;
+import com.eldruin.retail.ics.EldruinRetailIcsMarker;
 import com.eldruin.retail.security.EldruinRetailSecurityMarker;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -24,6 +25,7 @@ import com.fasterxml.jackson.datatype.joda.JodaModule;
 @ComponentScan(basePackageClasses = {
     BaldyCommonsWebConfigMarker.class,
     EldruinRetailCoreConfigMarker.class,
+    EldruinRetailIcsMarker.class,
     EldruinRetailSecurityMarker.class,
     EldruinRetailDashboardMarker.class
 })

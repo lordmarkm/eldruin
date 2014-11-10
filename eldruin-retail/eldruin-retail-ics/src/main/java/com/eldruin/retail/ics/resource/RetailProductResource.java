@@ -33,8 +33,8 @@ public class RetailProductResource extends GenericController {
 
     @RequestMapping(method = GET)
     public ResponseEntity<PageInfo<RetailProductInfo>> page(Principal principal,
-            @RequestParam int page, @RequestParam int size) {
-        PageRequest pageReq = new PageRequest(page, size, Direction.ASC, "name");
+            @RequestParam int page, @RequestParam int count) {
+        PageRequest pageReq = new PageRequest(page - 1, count, Direction.ASC, "name");
         return new ResponseEntity<>(service.pageInfo(pageReq), OK);
     }
 

@@ -8,7 +8,8 @@ define([
   'ngResource',
   'ngTable',
   'sugar',
-  'app/controllers/op-controllers.js'
+  'app/controllers/op-controllers.js',
+  'app/services.js'
 ], function (angular) {
   'use strict';
   return angular.module('eldruin-retail', [
@@ -18,7 +19,8 @@ define([
     'ngAnimate',
     'toaster',
     'ngTable',
-    'app.controllers'
+    'app.controllers',
+    'app.services'
   ])
   //This is our rudimentary global error handler
   .config(['$httpProvider', function ($httpProvider) {
