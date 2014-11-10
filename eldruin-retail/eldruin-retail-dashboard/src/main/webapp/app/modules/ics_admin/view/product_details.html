@@ -1,8 +1,38 @@
 <div class="row">
-  <h3>{{readOnlyProduct.name}}</h3>
+  <h3><a ui-sref="ics_admin.products">Products</a> / {{readOnlyProduct.name}}</h3>
   <button ng-click="updateProduct()" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Update</button>
 </div>
 
-Product: {{readOnlyProduct}}
+<div class="row mt10">
+
+<tabset>
+  <tab heading="Info" class="pointer">
+    <div class="row mt10">
+      <div class="col-sm-1">
+        <img src="images/noimage.png" class="img-thumbnail" />
+      </div>
+      <div class="col-sm-6">
+      <dl class="dl-horizontal mt10">
+        <dt style="text-align: left;">Code
+        <dd>{{readOnlyProduct.code}}
+        <dt style="text-align: left;">Name
+        <dd>{{readOnlyProduct.name}}
+        <dt style="text-align: left;">Description
+        <dd>{{readOnlyProduct.description}}
+        <dt style="text-align: left;">Price
+        <dd>{{readOnlyProduct.price | currency: 'Php '}}
+        <dt style="text-align: left;">Status
+        <dd>{{readOnlyProduct.status}}
+      </dl>
+      </div>
+    </div>
+  </tab>
+  <tab heading="Inventory" class="pointer">
+  </tab>
+  <tab heading="History" class="pointer">
+  </tab>
+</tabset>
+
+</div>
 
 <ng-include src="'app/modules/ics_admin/view/modal_update_product.html'"></ng-include>
