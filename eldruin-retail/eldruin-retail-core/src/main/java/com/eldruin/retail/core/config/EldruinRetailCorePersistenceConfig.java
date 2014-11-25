@@ -70,6 +70,7 @@ public class EldruinRetailCorePersistenceConfig extends PersistenceConfig {
         entityManagerFactory.setDataSource(dataSource());
         entityManagerFactory.setPackagesToScan(new String[] {
             "com.baldy.commons.security.models",
+            "com.baldy.commons.models.image.web",
             "com.eldruin.retail.ics.models",
             "com.tyrael.erp.ics.models"
         });

@@ -5,6 +5,11 @@ define(['angular'], function(angular) {
 
   .factory('ProductService', function($resource) {
     return $resource('retailproduct/:code');
+  })
+  .factory('ProductImagesService', function($resource) {
+    return $resource('retailproductimages/:action', {}, {
+      put: {method: 'PUT', isArray: false}
+    });
   });
 
 });

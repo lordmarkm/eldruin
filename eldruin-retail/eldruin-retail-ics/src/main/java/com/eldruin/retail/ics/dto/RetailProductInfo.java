@@ -15,6 +15,7 @@ public class RetailProductInfo extends BaseTyraelNamedDto {
     private String code;
     private BigDecimal price;
     private RetailProductStatus status;
+    private GalleryInfo gallery;
 
     protected ToStringCreator toStringCreator() {
         return super.toStringCreator()
@@ -40,6 +41,14 @@ public class RetailProductInfo extends BaseTyraelNamedDto {
     }
     public void setStatus(RetailProductStatus status) {
         this.status = status;
+    }
+
+    public GalleryInfo getGallery() {
+        return gallery;
+    }
+
+    public void setGallery(GalleryInfo gallery) {
+        this.gallery = gallery;
     }
 
 }

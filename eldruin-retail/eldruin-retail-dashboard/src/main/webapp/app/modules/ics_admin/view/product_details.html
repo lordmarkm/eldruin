@@ -9,7 +9,7 @@
   <tab heading="Info" class="pointer">
     <div class="row mt10">
       <div class="col-sm-1">
-        <img src="images/noimage.png" class="img-thumbnail" />
+        <img src="{{readOnlyProduct.gallery.thumbnail ? readOnlyProduct.gallery.thumbnail.url : 'images/noimage.png'}}" ng-click="updateThumbnail()" class="img-thumbnail pointer" />
       </div>
       <div class="col-sm-6">
       <dl class="dl-horizontal mt10">
@@ -36,3 +36,4 @@
 </div>
 
 <ng-include src="'app/modules/ics_admin/view/modal_update_product.html'"></ng-include>
+<ng-include src="'app/modules/ics_admin/view/modal_update_thumbnail.html'"></ng-include>
