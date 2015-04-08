@@ -5,13 +5,13 @@ import java.util.List;
 import com.eldruin.retail.ics.dto.RetailStockInfo;
 import com.eldruin.retail.ics.models.RetailProduct;
 import com.eldruin.retail.ics.models.RetailStock;
-import com.tyrael.commons.data.service.TyraelJpaService;
+import com.tyrael.commons.data.service.TyraelJpaServiceCustom;
 import com.tyrael.erp.ics.models.Location;
 
 /**
  * @author mbmartinez
  */
-public interface StockServiceCustom extends TyraelJpaService<RetailStock, RetailStockInfo> {
+public interface StockServiceCustom extends TyraelJpaServiceCustom<RetailStock, RetailStockInfo> {
 
     List<RetailStockInfo> findByProductInfo(RetailProduct product);
     List<RetailStockInfo> findByLocationInfo(Location location);
